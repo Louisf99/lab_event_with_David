@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('#new-item-form').addEventListener('submit', handleFormSubmit);
 
+  const deleteButton = document.createElement('button');
+  deleteButton.innerHTML = "Delete all";
+  deleteButton.type = 'button';
+  const newForm = document.querySelector('#new-item-form');
+  newForm.appendChild(deleteButton);
+  deleteButton.addEventListener('click', handleButtonClick);
 })
 
 
@@ -15,3 +21,8 @@ const list = document.querySelector('ul');
 list.appendChild(newListItem);
 this.reset();
 };
+
+
+const handleButtonClick = function (event) {
+document.querySelector('#reading-list').textContent = "";
+}
